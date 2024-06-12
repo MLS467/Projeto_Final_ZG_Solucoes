@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+#letra {
+    display: flex;
+    justify-content: start;
+    font-style: italic;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 40%;
+    height: 100vh;
+    margin-left: 10%;
+}
+
+.partes {
+    margin-bottom: 10px;
+    text-align: inherit;
+}
