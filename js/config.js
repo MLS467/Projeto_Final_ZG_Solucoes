@@ -13,16 +13,19 @@ const config = {
         animal6: "sapinho",
     },
 
-    Movimentos: {
-        movimento1: "braço direito",
-        movimento2: "braço esquerdo",
-        movimento3: "perna direita",
-        movimento4: "perna esquerda",
-        movimento5: "balança a cabeça",
-        movimento6: "dá uma voltinha",
-        movimento7: "dá um pulinho",
-        movimento8: "abraça o irmão"
-    }
+
 }
 
-export { config };
+const Movimentos = [
+    "braço direito ",
+    "braço esquerdo ",
+    "perna direita ",
+    "perna esquerda ",
+    "balança a cabeça ",
+    "dá uma voltinha ",
+    "dá um pulinho ",
+    "abraça o irmão "
+]
+
+
+export { config, Movimentos };
