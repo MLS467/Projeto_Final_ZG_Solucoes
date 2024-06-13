@@ -5,16 +5,89 @@ class Cancao {
         this.nome = nome;
         this.cantor = cantor;
         this.duracao = duracao;
-        this.destino = document.body;
+        this.destino = document.getElementById("main");
         this.movimentos = movimentos;
         this.divCancao = null;
         this.letra = this.divLetra(animais);
+        this.btnTema = null;
     }
 
     // CONSTRUÇÃO DA LETRA
 
     divLetra = (animais) => {
         let divLetra = document.createElement("div");
+
+        let imagem = document.createElement("div");
+        imagem.setAttribute("id", "imagem");
+
+
+        let botoes = document.createElement("div");
+        botoes.setAttribute("id", "botoes");
+
+        let img = document.createElement("img");
+        img.setAttribute("src", "../img/padre-marcelo-rossi-l.webp")
+        img.setAttribute("id", "img");
+        divLetra.prepend(img);
+
+        //  CRIANDO BOTOES
+        let divBotoes = document.createElement("div");
+        divBotoes.setAttribute("id", "divbotoes");
+
+        let btnPlay = document.createElement("button")
+        btnPlay.setAttribute("class", "btn");
+        btnPlay.setAttribute("id", "btn");
+        btnPlay.setAttribute("title", "Play");
+        let imgPlay = this.adcImagem("../img/play.png");
+        imgPlay.setAttribute("class", "icon");
+        btnPlay.append(imgPlay);
+        divBotoes.prepend(btnPlay);
+
+        let btnPause = document.createElement("button")
+        btnPause.setAttribute("class", "btn");
+        btnPause.setAttribute("id", "btnPause");
+        btnPause.setAttribute("title", "Pause");
+        let imgPause = this.adcImagem("../img/pause.png");
+        imgPause.setAttribute("class", "icon");
+        btnPause.append(imgPause);
+        divBotoes.prepend(btnPause);
+
+        let btnParteInicial = document.createElement("button")
+        btnParteInicial.setAttribute("class", "btn");
+        btnParteInicial.setAttribute("id", "btnPI");
+        let imgParteInicial = this.adcImagem("../img/um.png");
+        imgParteInicial.setAttribute("class", "icon");
+        btnParteInicial.append(imgParteInicial);
+        divBotoes.prepend(btnParteInicial);
+
+        let btnParteFinal = document.createElement("button")
+        btnParteFinal.setAttribute("class", "btn");
+        btnParteFinal.setAttribute("id", "btnPF");
+        let imgParteFinal = this.adcImagem("../img/dois.png");
+        imgParteFinal.setAttribute("class", "icon");
+        btnParteFinal.append(imgParteFinal);
+        divBotoes.prepend(btnParteFinal);
+
+        let tema = document.createElement("button");
+        let imgLight = document.createElement("img");
+        imgLight.setAttribute("src", "../img/dark.png");
+        imgLight.setAttribute("class", "icon");
+        tema.setAttribute("class", "btn");
+        tema.setAttribute("id", "btnTema");
+        tema.append(imgLight);
+        this.btnTema = tema;
+        divBotoes.prepend(tema);
+
+        let divAudio = document.createElement("div");
+        divAudio.setAttribute("id", "divAudio");
+        let audio = document.createElement("audio");
+        audio.setAttribute("id", "audio");
+        audio.setAttribute("controls", true);
+        audio.setAttribute("src", "../audio/Padre Marcelo Rossi - Erguei as Mãos (Ao Vivo).mp3");
+        divAudio.append(audio);
+        botoes.prepend(divBotoes);
+        botoes.append(divAudio);
+        this.destino.append(botoes);
+
         divLetra.setAttribute("id", "letra");
         this.divCancao = divLetra;
 
@@ -22,9 +95,11 @@ class Cancao {
         let h2 = document.createElement("h2");
         h1.innerHTML = this.nome;
         h2.innerHTML = this.cantor;
+        imagem.prepend(h1);
+        imagem.append(img);
+        imagem.append(h2);
+        divLetra.prepend(imagem);
 
-        divLetra.prepend(h1);
-        divLetra.append(h2);
 
         divLetra.append(this.partes(0));
         divLetra.append(this.Animais(animais.animal1, animais.animal2));
@@ -182,6 +257,13 @@ class Cancao {
         for (let index = 0; index < vezes; index++) {
             this.divCancao.append(this.partes(trecho));
         }
+    }
+
+    adcImagem = (caminho) => {
+        let img = document.createElement("img")
+        img.setAttribute("src", caminho);
+
+        return img;
     }
 
 }

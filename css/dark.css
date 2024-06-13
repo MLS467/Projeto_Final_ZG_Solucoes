@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+body {
+    background-image: url("../img/marcelo-rossi-sobrenome-italiano.webp");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+}
+
+#sombra {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+}
+
+
+#letra {
+    color: white;
+    display: flex;
+    background-color: black;
+    justify-content: start;
+    font-style: italic;
+    text-align: justify;
+    align-items: start;
+    flex-direction: column;
+    width: 30%;
+    height: 100vh;
+    padding: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    font-size: 20px;
+}
+
+.btn {
+    border: 1px solid rgb(32, 32, 31);
+    cursor: pointer;
+    padding: 10px;
+    width: 50%;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    color: black;
+}
+
+
+.partes {
+    margin-bottom: 10px;
+    text-align: inherit;
+}
+
+#main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#botoes {
+    width: 30%;
+    /* width: 40%; */
+}
+
+#imagem {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    /* border: 1px solid rgb(40, 93, 146); */
+    margin-bottom: 20px;
+}
+
+#img {
+    width: 100px;
+    border-radius: 100%;
+    margin: 10px;
+}
