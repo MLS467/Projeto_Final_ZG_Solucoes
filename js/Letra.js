@@ -163,6 +163,7 @@ class Cancao {
             this.movimentos[6],
             this.movimentos[7]
         ));
+
         this.destino.prepend(divLetra);
     }
 
@@ -232,7 +233,6 @@ class Cancao {
     adicionaMov = (...vet) => {
         let divMov = document.createElement("div");
         let paragrafo = document.createElement("p");
-        console.log(vet);
         if (vet.length == 1) {
 
             paragrafo.innerHTML = vet[0];

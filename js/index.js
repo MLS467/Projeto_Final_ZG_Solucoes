@@ -1,7 +1,7 @@
 import { Cancao } from "./Letra.js";
-import { config } from "./config.js";
-import { Movimentos } from "./config.js";
+import { config, Movimentos } from "./config.js";
 import { tema } from "./tema.js";
+import { paragrafos, tempo } from "./letraSinc.js";
 
 
 
@@ -25,8 +25,27 @@ document.getElementById("btn").addEventListener("click", (evt) => {
     audioControles.play();
 })
 
+document.getElementById("btnPause").addEventListener("click", (evt) => {
+    audioControles.pause();
+})
+
+let contagem = 0;
+let controle = false;
+
 audio.addEventListener('timeupdate', function () {
-    console.log(`Tempo atual: ${audio.currentTime.toFixed(2)} segundos`); // Imprime o tempo atual no console
+    const tempoAtual = Math.floor(audio.currentTime);
+    if (tempoAtual >= tempo[contagem].inicio && tempoAtual < tempo[contagem].fim) {
+        paragrafos[contagem].style.color = 'red';
+        controle = true;
+    } else {
+        paragrafos[contagem].style.color = 'white';
+        if (controle) {
+            contagem++;
+        }
+        controle = false;
+    }
+    // paragrafos[contagem].style.color = 'white';
+
 });
 
 
