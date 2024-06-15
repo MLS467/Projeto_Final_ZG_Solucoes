@@ -168,13 +168,14 @@ class Cancao {
     }
 
     Animais = (animal1, animal2) => {
+        let sexoAnimal1 = animal1.charAt(animal1.length - 1);
         let animais = document.createElement("div");
         animais.setAttribute("class", "partes")
         animais.innerHTML =
             `
        <p> Os animaizinhos subiram de dois em dois</p>
        <p> Os animaizinhos subiram de dois em dois</p>
-       <p> O ${animal1}</p>
+       <p> ${sexoAnimal1 == "a" ? "A" : "O"} ${animal1}</p>
        <p> E os ${animal2}, como os filhos do Senhor</p>
         `
         return animais;
@@ -243,14 +244,18 @@ class Cancao {
         } else if (vet.length > 1) {
 
             vet.map(elementos =>
-                paragrafo.innerHTML += `${elementos}, `);
-            divMov.append(paragrafo);
-            if (vet.length < 7)
-                divMov.append(this.partes(4));
-            this.divCancao.append(divMov);
+                paragrafo.innerHTML += `${elementos}, `
+            );
 
+            divMov.append(paragrafo);
+            if (vet.length <= 7)
+                divMov.append(this.partes(4));
+
+            this.divCancao.append(divMov);
         }
+
     }
+
 
 
     repeteTrecho = (trecho, vezes) => {

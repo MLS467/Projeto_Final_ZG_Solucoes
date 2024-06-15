@@ -1,7 +1,5 @@
 let paragrafos = document.getElementsByTagName("p");
-
-console.log(paragrafos);
-
+console.log(paragrafos)
 const tempo =
 {
     0: { inicio: 22, fim: 25 },
@@ -63,14 +61,58 @@ const tempo =
     56: { inicio: 207, fim: 211 },
     57: { inicio: 211, fim: 214 },
     58: { inicio: 214, fim: 219 },
-    // 59: { inicio: 214, fim:  }
-
-
+    59: { inicio: 219, fim: 222 },
+    60: { inicio: 222, fim: 225 },
+    61: { inicio: 225, fim: 229 },
+    62: { inicio: 229, fim: 231 },
+    63: { inicio: 231, fim: 237 },
+    64: { inicio: 237, fim: 240 },
+    65: { inicio: 240, fim: 243 },
+    66: { inicio: 243, fim: 246 },
+    67: { inicio: 246, fim: 248 },
+    68: { inicio: 248, fim: 253 },
+    69: { inicio: 253, fim: 257 },
+    70: { inicio: 257, fim: 260 },
+    71: { inicio: 260, fim: 263 },
+    72: { inicio: 263, fim: 265 },
+    73: { inicio: 265, fim: 270 }
 }
 
-export { paragrafos, tempo };
+
+let iniciou = true;
+let contagem = null;
+let controle = null;
+let primeiraParte = null;
+
+function controlaLetra(param) {
+    if (iniciou) {
+        contagem = param.contagem;
+        controle = param.controle;
+        iniciou = param.iniciou;
+        audio.currentTime = param.currentTime;
+        primeiraParte = param.primeiraParte;
+    }
+
+    const tempoAtual = Math.floor(audio.currentTime);
+
+    if (primeiraParte && tempoAtual == 140) {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+
+    if (tempoAtual >= tempo[contagem].inicio && tempoAtual < tempo[contagem].fim) {
+        paragrafos[contagem].style.color = '#4169E1';
+        controle = true;
+    } else {
+        paragrafos[contagem].style.color = '#7D7D7D';
+        if (controle) {
+            contagem++;
+        }
+        controle = false;
+
+    }
+}
+
+export { paragrafos, controlaLetra, tempo };
 
 
-// audio.addEventListener('ended', function () {
-//     subtitlesDiv.textContent = '';
-// });

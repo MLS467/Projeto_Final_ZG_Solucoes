@@ -1,11 +1,7 @@
 import { Cancao } from "./Letra.js";
 import { config, Movimentos } from "./config.js";
 import { tema } from "./tema.js";
-import { paragrafos, tempo } from "./letraSinc.js";
-
-let audioControles = document.getElementById("audio");
-
-
+import { paragrafos, tempo, controlaLetra } from "./letraSinc.js";
 
 const novaCancao = new Cancao
     (
@@ -16,38 +12,60 @@ const novaCancao = new Cancao
         Movimentos
     );
 
+let audioControles = document.getElementById("audio");
+
 
 document.getElementById("btnTema").addEventListener("click", (evt) => {
     tema();
-})
-
-document.getElementById("btn").addEventListener("click", (evt) => {
-    audioControles.play();
-})
-
-document.getElementById("btnPause").addEventListener("click", (evt) => {
-    audioControles.pause();
+    audioControles.addEventListener('timeupdate', controlaLetra);
 })
 
 
+document.getElementById("btn").addEventListener("click", iniciar)
 
-let contagem = 0;
-let controle = false;
-audio.addEventListener('timeupdate', function () {
-    const tempoAtual = Math.floor(audio.currentTime);
+document.getElementById("btnPause").addEventListener("click", pausar)
 
-    if (tempoAtual >= tempo[contagem].inicio && tempoAtual < tempo[contagem].fim) {
-        paragrafos[contagem].style.color = 'red';
-        controle = true;
-    } else {
-        paragrafos[contagem].style.color = 'white';
-        if (controle) {
-            contagem++;
-        }
-        controle = false;
-        console.log(contagem);
+document.getElementById('btnPI').addEventListener('click', (evt) => {
+    let configLetra = {
+        iniciou: false,
+        contagem: 0,
+        controle: false,
+        currentTime: 0,
+        primeiraParte: true
     }
+    iniciar();
+    controlaLetra(configLetra);
 
 });
 
+document.getElementById('btnPF').addEventListener('click', (evt) => {
 
+    let configLetra = {
+        iniciou: false,
+        contagem: 33,
+        controle: false,
+        currentTime: 138,
+        primeiraParte: false
+    }
+    iniciar();
+    controlaLetra(configLetra);
+})
+
+
+audioControles.addEventListener('timeupdate', (evt) => {
+    let configLetra = {
+        iniciou: false,
+        contagem: 0,
+        controle: false,
+        currentTime: 0
+    }
+    controlaLetra(configLetra);
+});
+
+function iniciar() {
+    audioControles.play();
+}
+
+function pausar() {
+    audioControles.pause();
+}

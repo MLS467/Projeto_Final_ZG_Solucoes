@@ -10,15 +10,10 @@ function tema() {
 
     if (!controle) {
         head.innerHTML = light;
-        let img = document.createElement("img");
-        img.setAttribute("src", "../img/dark.png");
         btnTema.innerHTML = img;
         controle = true;
     } else {
         head.innerHTML = dark;
-        btnTema = "";
-        let img = document.createElement("img");
-        img.setAttribute("src", "../img/light.png");
         btnTema.innerHTML = img;
         controle = false;
     }

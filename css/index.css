@@ -30,16 +30,16 @@ body {
 }
 
 #letra {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.753);
     display: flex;
-    color: white;
+    color: #7D7D7D;
     justify-content: start;
     font-style: normal;
     text-align: justify;
     align-items: flex-start;
     font-weight: 600;
     flex-direction: column;
-    width: 40%;
+    width: 30%;
     height: 100vh;
     padding: 10px;
     overflow: scroll;
@@ -59,6 +59,16 @@ body {
 .icon {
     width: 32px;
     height: 32px;
+}
+
+#botoes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 100px;
+
 }
 
 .btn {
@@ -85,15 +95,7 @@ body {
     flex-direction: row;
 }
 
-#botoes {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    width: 60%;
-    height: 100px;
-    /* width: 40%; */
-}
+
 
 #divbotoes {
     /* border: 1px solid green; */
@@ -149,6 +151,7 @@ body {
 #img {
     width: 100px;
     border-radius: 100%;
+    margin: 10px;
 }
 
 ::-webkit-scrollbar {
