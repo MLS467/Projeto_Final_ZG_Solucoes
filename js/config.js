@@ -1,7 +1,7 @@
 const config = {
     nomeCanco: "Erguei As Mãos",
     nomeCantor: "Padre Marcelo Rossi",
-    duracao: "15:30",
+    duracao: "4:56",
 
     Animais:
     {

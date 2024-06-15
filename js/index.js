@@ -3,6 +3,8 @@ import { config, Movimentos } from "./config.js";
 import { tema } from "./tema.js";
 import { paragrafos, tempo } from "./letraSinc.js";
 
+let audioControles = document.getElementById("audio");
+
 
 
 const novaCancao = new Cancao
@@ -19,8 +21,6 @@ document.getElementById("btnTema").addEventListener("click", (evt) => {
     tema();
 })
 
-let audioControles = document.getElementById("audio");
-
 document.getElementById("btn").addEventListener("click", (evt) => {
     audioControles.play();
 })
@@ -29,11 +29,13 @@ document.getElementById("btnPause").addEventListener("click", (evt) => {
     audioControles.pause();
 })
 
+
+
 let contagem = 0;
 let controle = false;
-
 audio.addEventListener('timeupdate', function () {
     const tempoAtual = Math.floor(audio.currentTime);
+
     if (tempoAtual >= tempo[contagem].inicio && tempoAtual < tempo[contagem].fim) {
         paragrafos[contagem].style.color = 'red';
         controle = true;
@@ -43,8 +45,8 @@ audio.addEventListener('timeupdate', function () {
             contagem++;
         }
         controle = false;
+        console.log(contagem);
     }
-    // paragrafos[contagem].style.color = 'white';
 
 });
 
