@@ -16,6 +16,7 @@ body {
     background-image: url("../img/marcelo-rossi-sobrenome-italiano.webp");
     background-repeat: no-repeat;
     background-position: top;
+    background-position-x: 3cm;
     background-size: cover;
 }
 
@@ -28,6 +29,14 @@ body {
     height: auto;
 }
 
+.destaque {
+    color: #8E7157;
+    /* Marrom claro */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /* Text shadow */
+    font-size: x-large;
+}
+
 #letra {
     background-color: #2E2E2E;
     display: flex;
@@ -38,7 +47,7 @@ body {
     align-items: flex-start;
     font-weight: 600;
     flex-direction: column;
-    width: 30%;
+    width: 40%;
     height: 100vh;
     padding: 10px;
     overflow: scroll;
@@ -88,21 +97,22 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-direction: column;
-    width: 60%;
+    flex-direction: row;
+    width: 100%;
     height: 100px;
-
 }
 
 #divbotoes {
+
     width: 100%;
     height: 70px;
     padding: 15px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
 }
+
 
 #divAudio {
     display: flex;
@@ -153,10 +163,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.3);
+    /* background: rgba(0, 0, 0, 0.3); */
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.7);
 }

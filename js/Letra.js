@@ -20,7 +20,6 @@ class Cancao {
         let imagem = document.createElement("div");
         imagem.setAttribute("id", "imagem");
 
-
         let botoes = document.createElement("div");
         botoes.setAttribute("id", "botoes");
 
@@ -49,7 +48,16 @@ class Cancao {
         let imgPause = this.adcImagem("../img/pause.png");
         imgPause.setAttribute("class", "icon");
         btnPause.append(imgPause);
-        divBotoes.prepend(btnPause);
+        divBotoes.append(btnPause);
+
+        let btnParar = document.createElement("button")
+        btnParar.setAttribute("class", "btn");
+        btnParar.setAttribute("id", "btnParar");
+        btnParar.setAttribute("title", "Parar");
+        let imgParar = this.adcImagem("../img/parar.png");
+        imgParar.setAttribute("class", "icon");
+        btnParar.append(imgParar);
+        divBotoes.append(btnParar);
 
         let btnParteInicial = document.createElement("button")
         btnParteInicial.setAttribute("class", "btn");
@@ -57,7 +65,7 @@ class Cancao {
         let imgParteInicial = this.adcImagem("../img/um.png");
         imgParteInicial.setAttribute("class", "icon");
         btnParteInicial.append(imgParteInicial);
-        divBotoes.prepend(btnParteInicial);
+        divBotoes.append(btnParteInicial);
 
         let btnParteFinal = document.createElement("button")
         btnParteFinal.setAttribute("class", "btn");
@@ -65,7 +73,7 @@ class Cancao {
         let imgParteFinal = this.adcImagem("../img/dois.png");
         imgParteFinal.setAttribute("class", "icon");
         btnParteFinal.append(imgParteFinal);
-        divBotoes.prepend(btnParteFinal);
+        divBotoes.append(btnParteFinal);
 
         let tema = document.createElement("button");
         let imgLight = document.createElement("img");
@@ -75,7 +83,7 @@ class Cancao {
         tema.setAttribute("id", "btnTema");
         tema.append(imgLight);
         this.btnTema = tema;
-        divBotoes.prepend(tema);
+        divBotoes.append(tema);
 
         let divAudio = document.createElement("div");
         divAudio.setAttribute("id", "divAudio");
@@ -114,49 +122,35 @@ class Cancao {
         divLetra.append(this.adicionaMov(this.movimentos[0]))
 
         divLetra.append(this.adicionaMov(
-            this.movimentos[0],
-            this.movimentos[1]));
+            this.movimentos[0], this.movimentos[1]
+        ));
 
         divLetra.append(this.adicionaMov(
-            this.movimentos[0],
-            this.movimentos[1],
-            this.movimentos[2]));
+            this.movimentos[0], this.movimentos[1], this.movimentos[2]));
 
-        divLetra.append(this.adicionaMov(
-            this.movimentos[0],
-            this.movimentos[1],
+        divLetra.append(this.adicionaMov(this.movimentos[0], this.movimentos[1],
             this.movimentos[2],
             this.movimentos[3]));
 
-        divLetra.append(this.adicionaMov(
-            this.movimentos[0],
-            this.movimentos[1],
+        divLetra.append(this.adicionaMov(this.movimentos[0], this.movimentos[1],
             this.movimentos[2],
             this.movimentos[3],
             this.movimentos[4]));
 
-        divLetra.append(this.adicionaMov(
-            this.movimentos[0],
-            this.movimentos[1],
+        divLetra.append(this.adicionaMov(this.movimentos[0], this.movimentos[1],
             this.movimentos[2],
             this.movimentos[3],
             this.movimentos[4],
             this.movimentos[5]));
 
-        divLetra.append(this.adicionaMov(
-            this.movimentos[0],
-            this.movimentos[1],
-            this.movimentos[2],
+        divLetra.append(this.adicionaMov(this.movimentos[0], this.movimentos[1], this.movimentos[2],
             this.movimentos[3],
             this.movimentos[4],
             this.movimentos[5],
             this.movimentos[6],
         ));
 
-        divLetra.append(this.adicionaMov(
-            this.movimentos[0],
-            this.movimentos[1],
-            this.movimentos[2],
+        divLetra.append(this.adicionaMov(this.movimentos[0], this.movimentos[1], this.movimentos[2],
             this.movimentos[3],
             this.movimentos[4],
             this.movimentos[5],
@@ -225,6 +219,7 @@ class Cancao {
                 break;
 
             default:
+                partesLetra.innerHTML = '';
                 break;
         }
 
@@ -235,7 +230,6 @@ class Cancao {
         let divMov = document.createElement("div");
         let paragrafo = document.createElement("p");
         if (vet.length == 1) {
-
             paragrafo.innerHTML = vet[0];
             divMov.append(paragrafo);
             divMov.append(this.partes(4));
@@ -243,20 +237,24 @@ class Cancao {
 
         } else if (vet.length > 1) {
 
-            vet.map(elementos =>
-                paragrafo.innerHTML += `${elementos}, `
+            vet.map((elementos, i) => {
+
+                if (i != vet.length - 1) {
+                    paragrafo.innerHTML += `${elementos}, `
+                } else {
+                    paragrafo.innerHTML += `${elementos}`
+                }
+            }
             );
 
             divMov.append(paragrafo);
             if (vet.length <= 7)
-                divMov.append(this.partes(4));
+                divMov.appendChild(this.partes(4));
 
             this.divCancao.append(divMov);
         }
 
     }
-
-
 
     repeteTrecho = (trecho, vezes) => {
         for (let index = 0; index < vezes; index++) {

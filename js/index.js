@@ -1,7 +1,7 @@
 import { Cancao } from "./Letra.js";
 import { config, Movimentos } from "./config.js";
 import { tema } from "./tema.js";
-import { paragrafos, tempo, controlaLetra } from "./letraSinc.js";
+import { controlaLetra } from "./letraSinc.js";
 
 const novaCancao = new Cancao
     (
@@ -11,22 +11,24 @@ const novaCancao = new Cancao
         config.Animais,
         Movimentos
     );
-
+let configLetra = null;
 let audioControles = document.getElementById("audio");
-
+let controleBtn = true;
 
 document.getElementById("btnTema").addEventListener("click", (evt) => {
     tema();
-    audioControles.addEventListener('timeupdate', controlaLetra);
 })
-
 
 document.getElementById("btn").addEventListener("click", iniciar)
 
 document.getElementById("btnPause").addEventListener("click", pausar)
 
+document.getElementById("btnParar").addEventListener("click", resetarTudo);
+
 document.getElementById('btnPI').addEventListener('click', (evt) => {
-    let configLetra = {
+
+
+    configLetra = {
         iniciou: false,
         contagem: 0,
         controle: false,
@@ -35,12 +37,14 @@ document.getElementById('btnPI').addEventListener('click', (evt) => {
     }
     iniciar();
     controlaLetra(configLetra);
+    controleBtn = false;
+
 
 });
 
 document.getElementById('btnPF').addEventListener('click', (evt) => {
 
-    let configLetra = {
+    configLetra = {
         iniciou: false,
         contagem: 33,
         controle: false,
@@ -49,11 +53,13 @@ document.getElementById('btnPF').addEventListener('click', (evt) => {
     }
     iniciar();
     controlaLetra(configLetra);
+    controleBtn = false;
+
 })
 
 
 audioControles.addEventListener('timeupdate', (evt) => {
-    let configLetra = {
+    configLetra = {
         iniciou: false,
         contagem: 0,
         controle: false,
@@ -68,4 +74,10 @@ function iniciar() {
 
 function pausar() {
     audioControles.pause();
+}
+
+function resetarTudo() {
+    audioControles.currentTime = 0;
+    audioControles.load();
+    location.reload();
 }

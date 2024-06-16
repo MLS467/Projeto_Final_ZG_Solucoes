@@ -78,7 +78,6 @@ const tempo =
     73: { inicio: 265, fim: 270 }
 }
 
-
 let iniciou = true;
 let contagem = null;
 let controle = null;
@@ -98,13 +97,14 @@ function controlaLetra(param) {
     if (primeiraParte && tempoAtual == 140) {
         audio.pause();
         audio.currentTime = 0;
+        audio.load();
     }
 
     if (tempoAtual >= tempo[contagem].inicio && tempoAtual < tempo[contagem].fim) {
-        paragrafos[contagem].style.color = '#4169E1';
+        paragrafos[contagem].classList.add('destaque');
         controle = true;
     } else {
-        paragrafos[contagem].style.color = '#7D7D7D';
+        paragrafos[contagem].classList.remove('destaque');
         if (controle) {
             contagem++;
         }

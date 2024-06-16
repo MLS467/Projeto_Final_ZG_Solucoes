@@ -16,8 +16,8 @@ body {
     background-image: url("../img/marcelo-rossi-sobrenome-italiano.webp");
     background-repeat: no-repeat;
     background-position: top;
+    background-position-x: 3cm;
     background-size: cover;
-    /* background-color: rgba(0, 0, 0, 0.7); */
 }
 
 #sombra {
@@ -30,7 +30,7 @@ body {
 }
 
 #letra {
-    background-color: rgba(255, 255, 255, 0.753);
+    background-color: rgb(255, 255, 255);
     display: flex;
     color: #7D7D7D;
     justify-content: start;
@@ -39,7 +39,7 @@ body {
     align-items: flex-start;
     font-weight: 600;
     flex-direction: column;
-    width: 30%;
+    width: 40%;
     height: 100vh;
     padding: 10px;
     overflow: scroll;
@@ -61,14 +61,21 @@ body {
     height: 32px;
 }
 
+.destaque {
+    color: #8E7157;
+    /* Marrom claro */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /* Text shadow */
+    font-size: x-large;
+}
+
 #botoes {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-direction: column;
-    width: 60%;
+    flex-direction: row;
+    width: 100%;
     height: 100px;
-
 }
 
 .btn {
@@ -93,17 +100,16 @@ body {
     height: auto;
     display: flex;
     flex-direction: row;
+
 }
 
 
-
 #divbotoes {
-    /* border: 1px solid green; */
     width: 100%;
     height: 70px;
     padding: 15px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
 }
@@ -117,7 +123,7 @@ body {
     position: absolute;
     left: 0;
     bottom: 0;
-    /* border: 1px solid red; */
+
 }
 
 #audio {
@@ -134,9 +140,6 @@ body {
     border: none;
     outline: none;
 }
-
-
-
 
 #imagem {
     display: flex;
@@ -156,22 +159,21 @@ body {
 
 ::-webkit-scrollbar {
     width: 6px;
-    /* Largura da barra de rolagem */
 }
 
 ::-webkit-scrollbar-track {
     background: transparent;
-    /* Cor de fundo da área de rolagem */
+
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.3);
-    /* Cor do indicador da barra de rolagem */
+    /* background: rgba(0, 0, 0, 0.3); */
+    background: #2e2e2e2e;
     border-radius: 3px;
-    /* Borda arredondada do indicador */
+
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.5);
-    /* Cor do indicador quando hover */
+    background: #2e2e2ee1;
+
 }
