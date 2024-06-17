@@ -28,4 +28,46 @@ const Movimentos = [
 ]
 
 
-export { config, Movimentos };
+const configBtn = {
+    play: {
+        iniciou: true,
+        contagem: 0,
+        controle: false,
+        primeiraParte: false,
+        currentTime: 0,
+        pf: false,
+        play: true
+    },
+
+    PI: {
+        iniciou: false,
+        contagem: 0,
+        controle: false,
+        currentTime: 0,
+        primeiraParte: true,
+        pf: true,
+        play: false
+    },
+
+    PF: {
+        iniciou: false,
+        contagem: 33,
+        controle: false,
+        currentTime: 138,
+        primeiraParte: false,
+        pf: true,
+        play: false
+    },
+
+    timeupdate: {
+        iniciou: false,
+        contagem: 0,
+        controle: false,
+        currentTime: 0,
+        pf: false,
+        play: false
+    }
+}
+
+
+export { config, Movimentos, configBtn };

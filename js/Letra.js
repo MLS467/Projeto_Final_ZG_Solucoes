@@ -1,4 +1,4 @@
-class Cancao {
+class EstruturaCancao {
 
     // CONSTRUÇÃO DA MÚSICA
     constructor(nome, cantor, duracao, animais, movimentos) {
@@ -163,6 +163,7 @@ class Cancao {
 
     Animais = (animal1, animal2) => {
         let sexoAnimal1 = animal1.charAt(animal1.length - 1);
+        let plural = animal2.charAt(animal2.length - 1);
         let animais = document.createElement("div");
         animais.setAttribute("class", "partes")
         animais.innerHTML =
@@ -170,7 +171,7 @@ class Cancao {
        <p> Os animaizinhos subiram de dois em dois</p>
        <p> Os animaizinhos subiram de dois em dois</p>
        <p> ${sexoAnimal1 == "a" ? "A" : "O"} ${animal1}</p>
-       <p> E os ${animal2}, como os filhos do Senhor</p>
+       <p> E ${plural == "s" ? "os" : "o"} ${animal2}, como os filhos do Senhor</p>
         `
         return animais;
     }
@@ -234,6 +235,7 @@ class Cancao {
             divMov.append(paragrafo);
             divMov.append(this.partes(4));
             this.divCancao.append(divMov);
+            return '';
 
         } else if (vet.length > 1) {
 
@@ -251,7 +253,8 @@ class Cancao {
             if (vet.length <= 7)
                 divMov.appendChild(this.partes(4));
 
-            this.divCancao.append(divMov);
+            this.divCancao.appendChild(divMov);
+            return '';
         }
 
     }
@@ -271,4 +274,4 @@ class Cancao {
 
 }
 
-export { Cancao };
+export { EstruturaCancao };

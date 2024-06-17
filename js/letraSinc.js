@@ -1,5 +1,5 @@
 let paragrafos = document.getElementsByTagName("p");
-console.log(paragrafos)
+
 const tempo =
 {
     0: { inicio: 22, fim: 25 },
@@ -79,12 +79,12 @@ const tempo =
 }
 
 let iniciou = true;
-let contagem = null;
+let contagem = 0;
 let controle = null;
 let primeiraParte = null;
 let play = true;
 function controlaLetra(param) {
-    console.log(param);
+
     play = param.play;
 
     if (param.pf) {
@@ -125,6 +125,6 @@ function controlaLetra(param) {
     }
 }
 
-export { paragrafos, controlaLetra, tempo };
+export { controlaLetra };
 
 
