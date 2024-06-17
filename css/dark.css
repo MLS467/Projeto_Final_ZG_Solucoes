@@ -31,10 +31,8 @@ body {
 
 .destaque {
     color: #8E7157;
-    /* Marrom claro */
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    /* Text shadow */
-    font-size: x-large;
+    font-size: 20px;
 }
 
 #letra {
@@ -52,7 +50,7 @@ body {
     padding: 10px;
     overflow: scroll;
     overflow-x: hidden;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #letra:hover {
@@ -65,13 +63,14 @@ body {
 }
 
 .icon {
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 35px;
 }
 
 .btn {
-    text-align: center;
-    line-height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid rgb(32, 32, 31);
     cursor: pointer;
     width: 40px;
@@ -118,9 +117,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    width: 100%;
+    width: 71.2%;
     position: absolute;
-    left: 0;
+    right: 0;
     bottom: 0;
 }
 
