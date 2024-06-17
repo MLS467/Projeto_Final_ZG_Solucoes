@@ -82,8 +82,20 @@ let iniciou = true;
 let contagem = null;
 let controle = null;
 let primeiraParte = null;
-
+let play = true;
 function controlaLetra(param) {
+    console.log(param);
+    play = param.play;
+
+    if (param.pf) {
+        iniciou = true;
+    }
+
+    if (play) {
+        iniciou = true;
+        play = false;
+    }
+
     if (iniciou) {
         contagem = param.contagem;
         controle = param.controle;
