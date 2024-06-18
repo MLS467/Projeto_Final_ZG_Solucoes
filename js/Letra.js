@@ -35,7 +35,7 @@ class EstruturaCancao {
         let btnPlay = document.createElement("button")
         btnPlay.setAttribute("class", "btn");
         btnPlay.setAttribute("id", "btn");
-        btnPlay.setAttribute("title", "Play");
+        btnPlay.setAttribute("title", "Início");
         let imgPlay = this.adcImagem("../img/play.png");
         imgPlay.setAttribute("class", "icon");
         btnPlay.append(imgPlay);
@@ -61,6 +61,7 @@ class EstruturaCancao {
 
         let btnParteInicial = document.createElement("button")
         btnParteInicial.setAttribute("class", "btn");
+        btnParteInicial.setAttribute("title", "Parte inicial");
         btnParteInicial.setAttribute("id", "btnPI");
         let imgParteInicial = this.adcImagem("../img/um.png");
         imgParteInicial.setAttribute("class", "icon");
@@ -69,6 +70,7 @@ class EstruturaCancao {
 
         let btnParteFinal = document.createElement("button")
         btnParteFinal.setAttribute("class", "btn");
+        btnParteFinal.setAttribute("title", "Parte final");
         btnParteFinal.setAttribute("id", "btnPF");
         let imgParteFinal = this.adcImagem("../img/dois.png");
         imgParteFinal.setAttribute("class", "icon");
@@ -79,6 +81,7 @@ class EstruturaCancao {
         let imgLight = document.createElement("img");
         imgLight.setAttribute("src", "../img/dark.png");
         imgLight.setAttribute("class", "icon");
+        tema.setAttribute("title", "Tema");
         tema.setAttribute("class", "btn");
         tema.setAttribute("id", "btnTema");
         tema.append(imgLight);

@@ -75,7 +75,8 @@ const tempo =
     70: { inicio: 257, fim: 260 },
     71: { inicio: 260, fim: 263 },
     72: { inicio: 263, fim: 265 },
-    73: { inicio: 265, fim: 270 }
+    73: { inicio: 265, fim: 270 },
+    74: { incio: 270, fim: 296 }
 }
 
 let iniciou = true;
@@ -83,6 +84,7 @@ let contagem = 0;
 let controle = null;
 let primeiraParte = null;
 let play = true;
+
 function controlaLetra(param) {
 
     play = param.play;
@@ -112,16 +114,20 @@ function controlaLetra(param) {
         audio.load();
     }
 
-    if (tempoAtual >= tempo[contagem].inicio && tempoAtual < tempo[contagem].fim) {
-        paragrafos[contagem].classList.add('destaque');
-        controle = true;
+    if (tempoAtual >= 270) {
+        return;
     } else {
-        paragrafos[contagem].classList.remove('destaque');
-        if (controle) {
-            contagem++;
-        }
-        controle = false;
 
+        if (tempoAtual >= tempo[contagem].inicio && tempoAtual < tempo[contagem].fim) {
+            paragrafos[contagem].classList.add('destaque');
+            controle = true;
+        } else {
+            paragrafos[contagem].classList.remove('destaque');
+            if (controle) {
+                contagem++;
+            }
+            controle = false;
+        }
     }
 }
 

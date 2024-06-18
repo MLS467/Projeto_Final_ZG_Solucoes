@@ -30,12 +30,14 @@ document.getElementById("btn").addEventListener("click", (evt) => {
 })
 
 document.getElementById("btnPause").addEventListener("click", (evt) => {
-    if (!controlePause) {
-        audioControles.pause()
-        controlePause = true;
-    } else {
-        audioControles.play();
-        controlePause = false;
+    if (controleDeRepro) {
+        if (!controlePause) {
+            audioControles.pause()
+            controlePause = true;
+        } else {
+            audioControles.play();
+            controlePause = false;
+        }
     }
 
 })
@@ -51,9 +53,11 @@ document.getElementById("btnParar").addEventListener("click", (evt) => {
 
 document.getElementById('btnPI').addEventListener('click', (evt) => {
     if (!controleDeRepro) {
-        controlaLetra(configBtn.PI);
+        let tempo = 140000;
         iniciar();
+        controlaLetra(configBtn.PI);
         controleDeRepro = true;
+        setTimeout(() => { controleDeRepro = false }, tempo);
     }
 });
 
@@ -82,5 +86,4 @@ function iniciar() {
 function resetarTudo() {
     audioControles.currentTime = 0;
     audioControles.load();
-
 }
